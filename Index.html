@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Portofolio 3D Artist</title>
+  <title>Portofolio Marzuqie Ridwanussalam</title>
 
-  <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -31,9 +30,7 @@
       overflow-x:hidden;
     }
 
-    /* ======================== */
-    /* KEYWORD_BACKGROUND_MAIN */
-    /* ======================== */
+    /* BACKGROUND */
 
     .background{
       position:fixed;
@@ -63,6 +60,8 @@
       z-index:-1;
     }
 
+    /* NAVBAR */
+
     header{
       width:100%;
       padding:25px 8%;
@@ -84,14 +83,14 @@
     }
 
     .logo{
-      font-size:1.4rem;
+      font-size:1.2rem;
       font-weight:700;
       letter-spacing:2px;
     }
 
     nav{
       display:flex;
-      gap:35px;
+      gap:25px;
     }
 
     nav a{
@@ -130,13 +129,13 @@
     }
 
     .hero-text h1{
-      font-size:6rem;
+      font-size:5rem;
       line-height:1;
       margin-bottom:30px;
     }
 
     .hero-text h1 span{
-      color:#6f6f6f;
+      color:#7f7f7f;
     }
 
     .description{
@@ -175,9 +174,7 @@
       border:1px solid rgba(255,255,255,0.15);
     }
 
-    /* ===================== */
-    /* KEYWORD_PROFILE_IMAGE */
-    /* ===================== */
+    /* HERO IMAGE */
 
     .hero-image{
       flex:1;
@@ -230,10 +227,6 @@
       gap:70px;
     }
 
-    /* ================================ */
-    /* KEYWORD_ABOUT_WORKSPACE_IMAGE */
-    /* ================================ */
-
     .about-image img{
       width:500px;
 
@@ -254,13 +247,25 @@
     .about-text p{
       color:#c5c5c5;
       line-height:1.9;
-      margin-bottom:35px;
+      margin-bottom:20px;
     }
+
+    .biodata{
+      margin-top:30px;
+    }
+
+    .biodata p{
+      margin-bottom:10px;
+    }
+
+    /* SKILLS */
 
     .skills{
       display:flex;
       flex-wrap:wrap;
       gap:15px;
+
+      margin-top:30px;
     }
 
     .skills span{
@@ -275,11 +280,7 @@
       font-size:0.9rem;
     }
 
-    /* PROJECT */
-
-    .projects{
-      padding:120px 8%;
-    }
+    /* SECTION */
 
     .section-title p{
       color:#7f7f7f;
@@ -290,6 +291,12 @@
     .section-title h2{
       font-size:5rem;
       margin-bottom:60px;
+    }
+
+    /* PROJECT */
+
+    .projects{
+      padding:120px 8%;
     }
 
     .project-grid{
@@ -352,12 +359,64 @@
       color:#c3c3c3;
       line-height:1.8;
     }
+/* CERTIFICATE */
+
+.certificate{
+  padding:120px 8%;
+}
+
+.certificate-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.certificate-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:25px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.certificate-card:hover{
+  transform:translateY(-10px);
+}
+
+.certificate-card img{
+  width:100%;
+  height:220px;
+
+  object-fit:contain;
+
+  background:#0b0b0b;
+
+  padding:15px;
+
+  display:block;
+
+  border-bottom:
+  1px solid rgba(255,255,255,0.05);
+}
+
+.certificate-content{
+  padding:25px;
+}
+
+.certificate-content h3{
+  margin-bottom:10px;
+  text-transform:capitalize;
+}
+
+.certificate-content p{
+  color:#c3c3c3;
+  line-height:1.8;
+}
 
     /* CONTACT */
 
     .contact{
       padding:150px 8%;
-
       text-align:center;
     }
 
@@ -439,11 +498,11 @@
 </head>
 <body>
 
-  <!-- BACKGROUND -->
   <div class="background"></div>
   <div class="overlay"></div>
 
   <!-- NAVBAR -->
+
   <header>
 
     <div class="logo">
@@ -453,12 +512,14 @@
     <nav>
       <a href="#about">Tentang</a>
       <a href="#projects">Proyek</a>
+      <a href="#sertifikat">Sertifikat</a>
       <a href="#contact">Kontak</a>
     </nav>
 
   </header>
 
   <!-- HERO -->
+
   <section class="hero">
 
     <div class="hero-text">
@@ -476,31 +537,26 @@
         Berfokus pada pembuatan environment 3D imersif,
         lighting sinematik, hard-surface modeling,
         dan visual game yang atmosferik.
-        Manusia menemukan render engine lalu memutuskan
-        tidur itu fitur opsional saat deadline.
       </p>
 
       <div class="buttons">
 
-  <!-- LIHAT PROYEK -->
-  <a href="https://www.instagram.com/retheone_/" target="_blank">
-    <button>
-      LIHAT PROYEK
-    </button>
-  </a>
+        <a href="https://www.instagram.com/retheone_/" target="_blank">
+          <button>
+            LIHAT PROYEK
+          </button>
+        </a>
 
-  <!-- HUBUNGI SAYA -->
-  <a href="kontak.html">
-    <button class="secondary">
-      HUBUNGI SAYA
-    </button>
-  </a>
+        <a href="kontak.html">
+          <button class="secondary">
+            HUBUNGI SAYA
+          </button>
+        </a>
 
-</div>
+      </div>
 
     </div>
 
-    <!-- KEYWORD_PROFILE_IMAGE -->
     <div class="hero-image">
       <img src="images/anda.jpeg">
     </div>
@@ -508,6 +564,7 @@
   </section>
 
   <!-- ABOUT -->
+
   <section class="about" id="about">
 
     <div class="about-image">
@@ -522,9 +579,19 @@
         Saya membuat visual 3D imersif dan asset siap pakai
         untuk game menggunakan Blender, Unreal Engine,
         dan workflow lighting sinematik.
-        Fokus pada storytelling melalui environment,
-        atmosfer, dan komposisi visual.
       </p>
+
+      <div class="biodata">
+
+        <p><strong>Nama:</strong> Marzuqie Ridwanussalam</p>
+
+        <p><strong>Bidang:</strong> Game Developer & 3D Artist</p>
+
+        <p><strong>Software:</strong> Blender, Unity, Unreal Engine</p>
+
+        <p><strong>Email:</strong> ridzz9782@gmail.com</p>
+
+      </div>
 
       <div class="skills">
 
@@ -544,6 +611,7 @@
   </section>
 
   <!-- PROJECT -->
+
   <section class="projects" id="projects">
 
     <div class="section-title">
@@ -557,6 +625,7 @@
     <div class="project-grid">
 
       <!-- PROJECT 1 -->
+
       <div class="card">
 
         <img src="images/Blacksmith.png">
@@ -566,16 +635,21 @@
           <h3>Blacksmith</h3>
 
           <p>
-            Environment stylized bertema pandai besi dengan suasana medieval. 
-            Fokus pada storytelling lingkungan, lighting hangat, 
-            dan penataan asset agar dunia terasa hidup.
+            Environment stylized bertema pandai besi dengan suasana medieval.
           </p>
+
+          <br>
+
+          <a href="https://github.com/Ridzz9782" target="_blank">
+            <button>Lihat GitHub</button>
+          </a>
 
         </div>
 
       </div>
 
       <!-- PROJECT 2 -->
+
       <div class="card">
 
         <img src="images/CowboySkull.png">
@@ -585,15 +659,21 @@
           <h3>Cowboy Skull</h3>
 
           <p>
-            Scene sinematik bertema western gurun. 
-            Menonjolkan mood kesepian dan storytelling visual melalui komposisi sederhana.
+            Scene sinematik bertema western gurun dengan atmosfer dramatis.
           </p>
+
+          <br>
+
+          <a href="https://github.com/Ridzz9782" target="_blank">
+            <button>Lihat GitHub</button>
+          </a>
 
         </div>
 
       </div>
 
       <!-- PROJECT 3 -->
+
       <div class="card">
 
         <img src="images/Siluet.png">
@@ -603,9 +683,14 @@
           <h3>Different Faith</h3>
 
           <p>
-            Artwork konseptual dengan bayangan simbol di tanah retak. Menggunakan 
-            lighting dan tekstur untuk menyampaikan suasana konflik dan makna simbolik.
+            Artwork konseptual dengan lighting dan simbolisme emosional.
           </p>
+
+          <br>
+
+          <a href="https://github.com/Ridzz9782" target="_blank">
+            <button>Lihat GitHub</button>
+          </a>
 
         </div>
 
@@ -615,21 +700,71 @@
 
   </section>
 
+  <!-- CERTIFICATE -->
+
+  <section class="certificate" id="sertifikat">
+
+    <div class="section-title">
+
+      <p>PENGHARGAAN & BOOTCAMP</p>
+
+      <h2>Sertifikat</h2>
+
+    </div>
+
+    <div class="certificate-grid">
+
+      <div class="certificate-card">
+
+        <img src="images/unity-essentials.1.png">
+
+        <div class="certificate-content">
+
+          <h3>unity essentials</h3>
+
+          <p>
+            program pembelajaran dasar dari Unity untuk pemula yang ingin belajar membuat game.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="certificate-card">
+
+        <img src="images/GlobalGameJam.jpeg">
+
+        <div class="certificate-content">
+
+          <h3>Global Game Jam Bogor</h3>
+
+          <p>
+            acara game jam di Bogor yang mempertemukan programmer, artist, designer, animator, dan kreator lain untuk membuat prototype game dalam waktu sekitar 48 jam.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
   <!-- CONTACT -->
+
   <section class="contact" id="contact">
 
     <h2>Mari Membangun Sesuatu</h2>
 
     <p>
-      Terbuka untuk proyek freelance,
+      Terbuka untuk freelance,
       kolaborasi, dan pengembangan game.
     </p>
 
-  <a href="kontak.html">
-    <button class="secondary">
-      HUBUNGI SAYA
-    </button>
-  </a>
+    <a href="kontak.html">
+      <button class="secondary">
+        HUBUNGI SAYA
+      </button>
+    </a>
 
   </section>
 
@@ -639,7 +774,7 @@
 
   <script>
 
-    // ANIMASI CARD
+    // CARD ANIMATION
 
     const cards = document.querySelectorAll('.card');
 
@@ -663,7 +798,7 @@
 
     showCards();
 
-    // PARALLAX BACKGROUND
+    // PARALLAX
 
     const background = document.querySelector('.background');
 
@@ -675,10 +810,6 @@
       `translateY(${scrollY * 0.2}px) scale(1.1)`;
 
     });
-
-    // manusia menciptakan portfolio
-    // supaya bisa memamerkan kemampuan
-    // mengatur kotak dan blur secara sinematik
 
   </script>
 
