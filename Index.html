@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portofolio 3D Artist</title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#050505;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* ======================== */
+    /* KEYWORD_BACKGROUND_MAIN */
+    /* ======================== */
+
+    .background{
+      position:fixed;
+      inset:0;
+
+      background-image:url('images/background.jpg');
+
+      background-size:cover;
+      background-position:center;
+
+      opacity:0.12;
+
+      z-index:-2;
+
+      transform:scale(1.1);
+    }
+
+    .overlay{
+      position:fixed;
+      inset:0;
+
+      background:linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.5),
+      rgba(0,0,0,0.95));
+
+      z-index:-1;
+    }
+
+    header{
+      width:100%;
+      padding:25px 8%;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:fixed;
+      top:0;
+
+      backdrop-filter:blur(10px);
+
+      background:rgba(0,0,0,0.2);
+
+      border-bottom:1px solid rgba(255,255,255,0.05);
+
+      z-index:999;
+    }
+
+    .logo{
+      font-size:1.4rem;
+      font-weight:700;
+      letter-spacing:2px;
+    }
+
+    nav{
+      display:flex;
+      gap:35px;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      opacity:0.5;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:80px;
+
+      padding:140px 8% 100px;
+    }
+
+    .hero-text{
+      flex:1;
+    }
+
+    .tag{
+      color:#8d8d8d;
+      letter-spacing:5px;
+      margin-bottom:25px;
+      font-size:0.9rem;
+    }
+
+    .hero-text h1{
+      font-size:6rem;
+      line-height:1;
+      margin-bottom:30px;
+    }
+
+    .hero-text h1 span{
+      color:#6f6f6f;
+    }
+
+    .description{
+      color:#cfcfcf;
+      line-height:1.9;
+      max-width:650px;
+      margin-bottom:40px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    button{
+      padding:16px 35px;
+      border:none;
+      border-radius:50px;
+
+      font-weight:600;
+
+      cursor:pointer;
+
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:translateY(-5px);
+    }
+
+    .secondary{
+      background:transparent;
+      color:white;
+
+      border:1px solid rgba(255,255,255,0.15);
+    }
+
+    /* ===================== */
+    /* KEYWORD_PROFILE_IMAGE */
+    /* ===================== */
+
+    .hero-image{
+      flex:1;
+
+      display:flex;
+      justify-content:center;
+
+      position:relative;
+    }
+
+    .hero-image::before{
+      content:'';
+
+      position:absolute;
+
+      width:450px;
+      height:450px;
+
+      background:white;
+
+      opacity:0.08;
+
+      filter:blur(120px);
+
+      border-radius:50%;
+    }
+
+    .hero-image img{
+      width:420px;
+      height:650px;
+
+      object-fit:cover;
+
+      border-radius:35px;
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      position:relative;
+      z-index:2;
+    }
+
+    /* ABOUT */
+
+    .about{
+      padding:120px 8%;
+
+      display:flex;
+      align-items:center;
+
+      gap:70px;
+    }
+
+    /* ================================ */
+    /* KEYWORD_ABOUT_WORKSPACE_IMAGE */
+    /* ================================ */
+
+    .about-image img{
+      width:500px;
+
+      border-radius:30px;
+
+      object-fit:cover;
+    }
+
+    .about-text{
+      flex:1;
+    }
+
+    .about-text h2{
+      font-size:4rem;
+      margin-bottom:25px;
+    }
+
+    .about-text p{
+      color:#c5c5c5;
+      line-height:1.9;
+      margin-bottom:35px;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .skills span{
+      padding:12px 20px;
+
+      border-radius:50px;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      font-size:0.9rem;
+    }
+
+    /* PROJECT */
+
+    .projects{
+      padding:120px 8%;
+    }
+
+    .section-title p{
+      color:#7f7f7f;
+      letter-spacing:5px;
+      margin-bottom:10px;
+    }
+
+    .section-title h2{
+      font-size:5rem;
+      margin-bottom:60px;
+    }
+
+    .project-grid{
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(320px,1fr));
+
+      gap:35px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.04);
+
+      border:1px solid rgba(255,255,255,0.06);
+
+      border-radius:30px;
+
+      overflow:hidden;
+
+      transition:0.4s;
+
+      opacity:0;
+
+      transform:translateY(80px);
+    }
+
+    .card.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card img{
+      width:100%;
+      height:260px;
+
+      object-fit:cover;
+
+      transition:0.5s;
+    }
+
+    .card:hover img{
+      transform:scale(1.05);
+    }
+
+    .card-content{
+      padding:28px;
+    }
+
+    .card-content h3{
+      font-size:1.7rem;
+      margin-bottom:15px;
+    }
+
+    .card-content p{
+      color:#c3c3c3;
+      line-height:1.8;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      padding:150px 8%;
+
+      text-align:center;
+    }
+
+    .contact h2{
+      font-size:5rem;
+      margin-bottom:25px;
+    }
+
+    .contact p{
+      color:#c3c3c3;
+
+      line-height:1.9;
+
+      max-width:700px;
+
+      margin:auto;
+
+      margin-bottom:40px;
+    }
+
+    footer{
+      padding:40px;
+
+      text-align:center;
+
+      color:#6f6f6f;
+
+      border-top:1px solid rgba(255,255,255,0.05);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1100px){
+
+      .hero,
+      .about{
+        flex-direction:column;
+      }
+
+      .hero-text h1{
+        font-size:4rem;
+      }
+
+      .section-title h2,
+      .about-text h2,
+      .contact h2{
+        font-size:3rem;
+      }
+
+      .hero-image img,
+      .about-image img{
+        width:100%;
+        height:auto;
+      }
+
+    }
+
+    @media(max-width:700px){
+
+      nav{
+        display:none;
+      }
+
+      .hero-text h1{
+        font-size:3rem;
+      }
+
+      .buttons{
+        flex-direction:column;
+      }
+
+      button{
+        width:100%;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <!-- NAVBAR -->
+  <header>
+
+    <div class="logo">
+      MARZUQIE RIDWANUSSALAM
+    </div>
+
+    <nav>
+      <a href="#about">Tentang</a>
+      <a href="#projects">Proyek</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <p class="tag">
+        GAME DEVELOPER • 3D ARTIST
+      </p>
+
+      <h1>
+        MEMBANGUN <br>
+        DUNIA GAME <span>SINEMATIK</span>
+      </h1>
+
+      <p class="description">
+        Berfokus pada pembuatan environment 3D imersif,
+        lighting sinematik, hard-surface modeling,
+        dan visual game yang atmosferik.
+        Manusia menemukan render engine lalu memutuskan
+        tidur itu fitur opsional saat deadline.
+      </p>
+
+      <div class="buttons">
+
+  <!-- LIHAT PROYEK -->
+  <a href="https://www.instagram.com/retheone_/" target="_blank">
+    <button>
+      LIHAT PROYEK
+    </button>
+  </a>
+
+  <!-- HUBUNGI SAYA -->
+  <a href="kontak.html">
+    <button class="secondary">
+      HUBUNGI SAYA
+    </button>
+  </a>
+
+</div>
+
+    </div>
+
+    <!-- KEYWORD_PROFILE_IMAGE -->
+    <div class="hero-image">
+      <img src="images/anda.jpeg">
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="about-image">
+      <img src="images/Project.png">
+    </div>
+
+    <div class="about-text">
+
+      <h2>Tentang Saya</h2>
+
+      <p>
+        Saya membuat visual 3D imersif dan asset siap pakai
+        untuk game menggunakan Blender, Unreal Engine,
+        dan workflow lighting sinematik.
+        Fokus pada storytelling melalui environment,
+        atmosfer, dan komposisi visual.
+      </p>
+
+      <div class="skills">
+
+        <span>Blender</span>
+        <span>3D Modeling</span>
+        <span>Environment Art</span>
+        <span>Lighting</span>
+        <span>Unity</span>
+        <span>Unreal Engine</span>
+        <span>Animation</span>
+        <span>Game Assets</span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECT -->
+  <section class="projects" id="projects">
+
+    <div class="section-title">
+
+      <p>HASIL KARYA</p>
+
+      <h2>Proyek</h2>
+
+    </div>
+
+    <div class="project-grid">
+
+      <!-- PROJECT 1 -->
+      <div class="card">
+
+        <img src="images/Blacksmith.png">
+
+        <div class="card-content">
+
+          <h3>Blacksmith</h3>
+
+          <p>
+            Environment stylized bertema pandai besi dengan suasana medieval. 
+            Fokus pada storytelling lingkungan, lighting hangat, 
+            dan penataan asset agar dunia terasa hidup.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="card">
+
+        <img src="images/CowboySkull.png">
+
+        <div class="card-content">
+
+          <h3>Cowboy Skull</h3>
+
+          <p>
+            Scene sinematik bertema western gurun. 
+            Menonjolkan mood kesepian dan storytelling visual melalui komposisi sederhana.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="card">
+
+        <img src="images/Siluet.png">
+
+        <div class="card-content">
+
+          <h3>Different Faith</h3>
+
+          <p>
+            Artwork konseptual dengan bayangan simbol di tanah retak. Menggunakan 
+            lighting dan tekstur untuk menyampaikan suasana konflik dan makna simbolik.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <h2>Mari Membangun Sesuatu</h2>
+
+    <p>
+      Terbuka untuk proyek freelance,
+      kolaborasi, dan pengembangan game.
+    </p>
+
+  <a href="kontak.html">
+    <button class="secondary">
+      HUBUNGI SAYA
+    </button>
+  </a>
+
+  </section>
+
+  <footer>
+    © 2026 MARZUQIE RIDWANUSSALAM • PORTOFOLIO 3D ARTIST
+  </footer>
+
+  <script>
+
+    // ANIMASI CARD
+
+    const cards = document.querySelectorAll('.card');
+
+    function showCards(){
+
+      cards.forEach((card)=>{
+
+        const top = card.getBoundingClientRect().top;
+
+        if(top < window.innerHeight - 100){
+
+          card.classList.add('show');
+
+        }
+
+      });
+
+    }
+
+    window.addEventListener('scroll',showCards);
+
+    showCards();
+
+    // PARALLAX BACKGROUND
+
+    const background = document.querySelector('.background');
+
+    window.addEventListener('scroll',()=>{
+
+      let scrollY = window.scrollY;
+
+      background.style.transform =
+      `translateY(${scrollY * 0.2}px) scale(1.1)`;
+
+    });
+
+    // manusia menciptakan portfolio
+    // supaya bisa memamerkan kemampuan
+    // mengatur kotak dan blur secara sinematik
+
+  </script>
+
+</body>
+</html>
